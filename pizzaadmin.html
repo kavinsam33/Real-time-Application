@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<title>Pizza Delivery System</title>
+
+
+
+<style>
+
+body {
+
+font-family: Arial, sans-serif;
+
+background-color: #f4f4f4;
+
+margin: 0;
+
+padding: 0;
+
+}
+
+
+
+header {
+
+background-color: #d32f2f;
+
+color: white;
+
+text-align: center;
+
+padding: 20px;
+
+}
+
+
+
+.container {
+
+width: 80%;
+
+max-width: 800px;
+
+margin: 30px auto;
+
+background: white;
+
+padding: 25px;
+
+border-radius: 10px;
+
+box-shadow: 0 0 10px gray;
+
+}
+
+
+
+h2 {
+
+color: #d32f2f;
+
+border-bottom: 2px solid #ddd;
+
+padding-bottom: 8px;
+
+}
+
+
+
+label {
+
+display: block;
+
+margin-top: 15px;
+
+font-weight: bold;
+
+}
+
+
+
+input, select {
+
+width: 100%;
+
+padding: 10px;
+
+margin-top: 5px;
+
+border: 1px solid #ccc;
+
+border-radius: 5px;
+
+box-sizing: border-box;
+
+}
+
+
+
+button {
+
+width: 100%;
+
+padding: 12px;
+
+margin-top: 20px;
+
+background-color: #d32f2f;
+
+color: white;
+
+border: none;
+
+border-radius: 5px;
+
+font-size: 16px;
+
+cursor: pointer;
+
+}
+
+
+
+button:hover {
+
+background-color: #b71c1c;
+
+}
+
+
+
+.status {
+
+margin-top: 25px;
+
+padding: 15px;
+
+background-color: #f9f9f9;
+
+border-left: 5px solid #d32f2f;
+
+}
+
+
+
+.status span {
+
+font-weight: bold;
+
+}
+
+
+
+footer {
+
+text-align: center;
+
+padding: 15px;
+
+background-color: #333;
+
+color: white;
+
+margin-top: 30px;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+<h1>🍕 Pizza Delivery System</h1>
+
+<p>Order your favorite pizza online</p>
+
+</header>
+
+
+
+<div class="container">
+
+
+
+<h2>Customer Details</h2>
+
+
+
+<label>Customer ID</label>
+
+<input type="number" id="customerId" placeholder="Enter Customer ID">
+
+
+
+<label>Customer Name</label>
+
+<input type="text" id="customerName" placeholder="Enter your name">
+
+
+
+<label>Phone Number</label>
+
+<input type="text" id="phone" placeholder="Enter phone number">
+
+
+
+<label>Delivery Address</label>
+
+<input type="text" id="address" placeholder="Enter delivery address">
+
+
+
+
+
+<h2>Pizza Details</h2>
+
+
+
+<label>Pizza</label>
+
+<select id="pizza">
+
+<option value="199">Margherita - ₹199</option>
+
+<option value="299">Farmhouse - ₹299</option>
+
+<option value="399">Pepper BBQ - ₹399</option>
+
+<option value="349">Cheese Burst - ₹349</option>
+
+</select>
+
+
+
+<label>Quantity</label>
+
+<input type="number" id="quantity" value="1" min="1">
+
+
+
+
+
+<h2>Delivery Details</h2>
+
+
+
+<label>Delivery Agent</label>
+
+<select id="agent">
+
+<option value="201">Karthik</option>
+
+<option value="202">Vijay</option>
+
+<option value="203">Sanjay</option>
+
+</select>
+
+
+
+
+
+<h2>Order Details</h2>
+
+
+
+<label>Order ID</label>
+
+<input type="number" id="orderId" placeholder="Enter Order ID">
+
+
+
+<button onclick="placeOrder()">Place Order</button>
+
+
+
+<div class="status" id="orderStatus">
+
+<p>Status: <span>Waiting for Order</span></p>
+
+<p>Order Time: <span>-</span></p>
+
+<p>Last Updated: <span>-</span></p>
+
+<p>Total Amount: <span>₹0</span></p>
+
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+
+<p>Pizza Delivery System | DBMS Project</p>
+
+</footer>
+
+
+
+
+
+<script>
+
+
+
+function placeOrder() {
+
+
+
+let orderId = document.getElementById("orderId").value;
+
+let customerId = document.getElementById("customerId").value;
+
+let customerName = document.getElementById("customerName").value;
+
+let pizzaPrice = document.getElementById("pizza").value;
+
+let quantity = document.getElementById("quantity").value;
+
+
+
+if (orderId === "" || customerId === "" || customerName === "") {
+
+alert("Please enter all required details.");
+
+return;
+
+}
+
+
+
+let total = pizzaPrice * quantity;
+
+
+
+let currentTime = new Date().toLocaleString();
+
+
+
+document.getElementById("orderStatus").innerHTML = `
+
+<p>Status: <span>Placed</span></p>
+
+<p>Order ID: <span>${orderId}</span></p>
+
+<p>Customer: <span>${customerName}</span></p>
+
+<p>Order Time: <span>${currentTime}</span></p>
+
+<p>Last Updated: <span>${currentTime}</span></p>
+
+<p>Total Amount: <span>₹${total}</span></p>
+
+`;
+
+
+
+alert("Order placed successfully!");
+
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html> 
