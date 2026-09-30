@@ -484,5 +484,6 @@ The Pizza Delivery System demonstrates how a Java GUI application can be integra
 The project provides a practical implementation of Java Swing, JDBC, SQL, database relationships, triggers, and timestamp-based order tracking in a single application.
 
 ## Members Of the Project
-Mahesh Kumarr
-Mohammed Ashiq S
+Mahesh Kumarr,
+Mohammed Ashiq S,
+Kavin Sambasivam
